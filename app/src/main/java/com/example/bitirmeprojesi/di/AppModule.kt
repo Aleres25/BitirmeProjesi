@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jakarta.inject.Singleton
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -17,7 +17,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideInternetCheckDao(): InternetCheckDao {
-        return RetrofitClient.getClient("https://raw.githubusercontent.com/")
+        return RetrofitClient.getClient("https://raw.githubusercontent.com/Aleres25/internet_check_api/main/")
             .create(InternetCheckDao::class.java)
     }
 

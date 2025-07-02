@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface InternetCheckDao {
 
-    @GET("internet_check_api/internet_check.json")
+    @GET("internet_check.json")
     suspend fun checkInternet(): InternetCheckResponse
 }
