@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Ana renkler -->
+    <color name="colorPrimary">#D32F2F</color> <!-- Kırmızı, CTA butonlar -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Kırmızı üstü yazılar için -->
+
+    <color name="colorSecondary">#1976D2</color> <!-- Mavi, giriş detayları -->
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+    <color name="colorTertiary">#673AB7</color> <!-- Mor, destek renk -->
+    <color name="colorOnTertiary">#FFFFFF</color>
+
+    <!-- Arka planlar -->
+    <color name="background">#F5F5F5</color> <!-- Genel arka plan -->
+    <color name="surface">#FFFFFF</color> <!-- Kart arka planları -->
+    <color name="onBackground">#212121</color> <!-- Arka plan üstü metinler -->
+
+    <!-- Buton ve input alanları için özel -->
+    <color name="buttonBackground">#D32F2F</color>
+    <color name="buttonText">#FFFFFF</color>
+    <color name="inputBackground">#E0F7FA</color>
+    <color name="inputText">#212121</color>
+
+    <!-- Diğer yardımcı renkler -->
+    <color name="dividerColor">#BDBDBD</color>
+    <color name="iconTint">#616161</color>
+    <color name="errorColor">#B71C1C</color> <!-- Hata mesajları -->
+    <color name="successColor">#4CAF50</color> <!-- Başarılı işlem -->
+
+    <!-- Şeffaf varyantlar -->
+    <color name="overlay50">#80000000</color> <!-- %50 siyah -->
+    <color name="overlay30">#4D000000</color> <!-- %30 siyah -->
+
+</resources>
