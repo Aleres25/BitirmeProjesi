@@ -1,9 +1,12 @@
 package com.example.bitirmeprojesi.di
 
+import com.example.bitirmeprojesi.datasource.CartDataSource
 import com.example.bitirmeprojesi.datasource.InternetCheckDataSource
 import com.example.bitirmeprojesi.datasource.ProductDataSource
+import com.example.bitirmeprojesi.repository.CartRepository
 import com.example.bitirmeprojesi.repository.InternetCheckRepository
 import com.example.bitirmeprojesi.repository.ProductRepository
+import com.example.bitirmeprojesi.retrofit.CartDao
 import com.example.bitirmeprojesi.retrofit.InternetCheckDao
 import com.example.bitirmeprojesi.retrofit.ProductDao
 import com.example.bitirmeprojesi.utils.RetrofitClient
@@ -66,5 +69,27 @@ object AppModule {
     fun provideProductRepository(ds: ProductDataSource): ProductRepository {
         return ProductRepository(ds)
     }
+
+    @Provides
+    @Singleton
+    fun provideCartDao(): CartDao {
+        return RetrofitClient.getClient("http://kasimadalan.pe.hu/")
+            .create(CartDao::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartDataSource(cartDao: CartDao): CartDataSource {
+        return CartDataSource(cartDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartRepository(ds: CartDataSource): CartRepository {
+        return CartRepository(ds)
+    }
+
+
+
 
 }

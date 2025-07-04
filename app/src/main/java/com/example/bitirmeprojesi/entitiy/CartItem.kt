@@ -1,13 +1,12 @@
 package com.example.bitirmeprojesi.entitiy
 
-import java.io.Serializable
-
-
-data class Product(
-    val id: Int,
+data class CartItem(
+    val sepetId: Int,
     val ad: String,
     val resim: String,
     val kategori: String,
     val fiyat: Int,
-    val marka: String
-): Serializable
+    val marka: String,
+    val siparisAdeti: Int,
+    val kullaniciAdi: String
+)

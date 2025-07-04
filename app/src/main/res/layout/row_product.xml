@@ -23,6 +23,7 @@
             android:clipToOutline="true"
             android:contentDescription="Ürün görseli" />
 
+        <!-- Ürün Adı -->
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
@@ -36,19 +37,19 @@
             android:ellipsize="end"
             android:gravity="center"/>
 
-
+        <!-- Fiyat -->
         <TextView
             android:id="@+id/textViewPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="₺99"
-            android:textColor="#00FF00"
-            android:textSize="13sp"
+            android:textColor="@color/buttonBackground"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginTop="2dp"/>
 
-
+        <!-- Sayaç -->
         <LinearLayout
             android:id="@+id/quantityLayout"
             android:layout_width="wrap_content"
@@ -60,7 +61,7 @@
             android:padding="4dp">
 
             <ImageButton
-                android:id="@+id/buttonDecrease"
+                android:id="@+id/buttonMinus"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@drawable/btn_circle_dark"
@@ -73,13 +74,13 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:gravity="center"
-                android:text="1"
+                android:text="0"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins_medium" />
 
             <ImageButton
-                android:id="@+id/buttonIncrease"
+                android:id="@+id/buttonPlus"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@drawable/btn_circle_dark"
@@ -87,5 +88,20 @@
                 android:contentDescription="Arttır"
                 app:tint="@color/white" />
         </LinearLayout>
+        <Button
+            android:id="@+id/buttonAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="Sepete Ekle"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="#FF3D00"
+            android:drawableStart="@drawable/baseline_shopping_cart_24"
+            android:drawablePadding="6dp"
+            android:padding="6dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
