@@ -15,6 +15,9 @@
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_signUpFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -26,5 +29,13 @@
             app:destination="@id/signUpFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.bitirmeprojesi.screens.fragments.main.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" />
 </navigation>

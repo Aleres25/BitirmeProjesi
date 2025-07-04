@@ -65,7 +65,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:hint="Adınız"
                     android:inputType="textPersonName"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textColorHint="#CCCCCC" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +88,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:hint="E-posta"
                     android:inputType="textEmailAddress"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textColorHint="#CCCCCC"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black" />
@@ -115,7 +115,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:hint="Şifre"
                     android:inputType="textPassword"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textColorHint="#CCCCCC"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black" />
@@ -142,7 +142,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:hint="Şifre Tekrar"
                     android:inputType="textPassword"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textColorHint="#CCCCCC"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black" />

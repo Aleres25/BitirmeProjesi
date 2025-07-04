@@ -4,6 +4,8 @@ import com.example.bitirmeprojesi.datasource.InternetCheckDataSource
 import com.example.bitirmeprojesi.repository.InternetCheckRepository
 import com.example.bitirmeprojesi.retrofit.InternetCheckDao
 import com.example.bitirmeprojesi.utils.RetrofitClient
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,4 +34,13 @@ object AppModule {
     fun provideInternetCheckRepository(ds: InternetCheckDataSource): InternetCheckRepository {
         return InternetCheckRepository(ds)
     }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+
+
+    @Provides
+    @Singleton
+    fun provideFirebaseDatabase(): FirebaseDatabase = FirebaseDatabase.getInstance()
 }
