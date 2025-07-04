@@ -14,12 +14,13 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#1E1E1E"
+            android:background="@color/white"
             android:queryHint="Ürün ara..."
             android:iconifiedByDefault="false"
-            android:textColorHint="#AAAAAA"
+            android:textColorHint="#FFFFFF"
             android:elevation="4dp" />
 
         <androidx.recyclerview.widget.RecyclerView

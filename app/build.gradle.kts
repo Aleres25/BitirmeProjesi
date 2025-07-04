@@ -52,6 +52,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("io.coil-kt:coil:2.4.0")
+
     implementation("com.tbuonomo:dotsindicator:5.1.0")
 
     val nav_version = "2.9.0"

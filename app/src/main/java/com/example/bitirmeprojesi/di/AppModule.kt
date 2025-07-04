@@ -1,8 +1,11 @@
 package com.example.bitirmeprojesi.di
 
 import com.example.bitirmeprojesi.datasource.InternetCheckDataSource
+import com.example.bitirmeprojesi.datasource.ProductDataSource
 import com.example.bitirmeprojesi.repository.InternetCheckRepository
+import com.example.bitirmeprojesi.repository.ProductRepository
 import com.example.bitirmeprojesi.retrofit.InternetCheckDao
+import com.example.bitirmeprojesi.retrofit.ProductDao
 import com.example.bitirmeprojesi.utils.RetrofitClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -43,4 +46,25 @@ object AppModule {
     @Provides
     @Singleton
     fun provideFirebaseDatabase(): FirebaseDatabase = FirebaseDatabase.getInstance()
+
+
+    @Provides
+    @Singleton
+    fun provideProductDao(): ProductDao {
+        return RetrofitClient.getClient("http://kasimadalan.pe.hu/")
+            .create(ProductDao::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductDataSource(productDao: ProductDao): ProductDataSource {
+        return ProductDataSource(productDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductRepository(ds: ProductDataSource): ProductRepository {
+        return ProductRepository(ds)
+    }
+
 }

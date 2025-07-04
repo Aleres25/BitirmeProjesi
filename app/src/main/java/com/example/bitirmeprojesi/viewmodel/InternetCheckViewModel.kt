@@ -9,9 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class InternetCheckViewModel @Inject constructor(
-    private val repo: InternetCheckRepository
-) : ViewModel() {
+class InternetCheckViewModel @Inject constructor(private val repo: InternetCheckRepository) : ViewModel() {
 
     val isConnected = MutableLiveData<Boolean>()
 
