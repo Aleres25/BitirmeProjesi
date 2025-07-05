@@ -25,13 +25,6 @@ interface CartDao {
         @Field("kullaniciAdi") kullaniciAdi: String
     ): CartResponse
 
-    @POST("urunler/sepetGuncelle.php")
-    @FormUrlEncoded
-    suspend fun updateCartItem(
-        @Field("sepetId") sepetId: Int,
-        @Field("siparisAdeti") siparisAdeti: Int
-    ): CRUDResponse
-
     @POST("urunler/sepettenUrunSil.php")
     @FormUrlEncoded
     suspend fun deleteFromCart(
