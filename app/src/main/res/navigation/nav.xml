@@ -55,5 +55,13 @@
         android:id="@+id/cartFragment"
         android:name="com.example.bitirmeprojesi.screens.fragments.main.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_saveCardFragment"
+            app:destination="@id/saveCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveCardFragment"
+        android:name="com.example.bitirmeprojesi.screens.fragments.main.SaveCardFragment"
+        android:label="SaveCardFragment" />
 </navigation>

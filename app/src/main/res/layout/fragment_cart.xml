@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cartRoot"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
     tools:context=".screens.fragments.main.CartFragment">
 
+<ImageView
+    android:id="@+id/backToFeedFragment"
+    android:layout_width="50dp"
+    android:layout_gravity="right"
+    android:src="@drawable/baseline_home_24"
+    android:layout_height="50dp"></ImageView>
     <TextView
-        android:layout_width="match_parent"
-        android:text="ÜRÜNLER"
-        android:textSize="45sp"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_margin="15dp"
+        android:id="@+id/cartTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sepetiniz"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/poppins_medium" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="12dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
         android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:paddingBottom="12dp"
+        tools:listitem="@layout/row_cart_item" />
+
+
+    <Button
+        android:id="@+id/buttonCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ödeme Yap"
+        android:layout_margin="12dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

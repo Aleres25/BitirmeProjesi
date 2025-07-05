@@ -7,13 +7,13 @@
     android:background="@color/white"
     tools:context=".screens.activities.MainActivity">
 
-    <!-- ViewPager2 tüm ekranı kaplasın -->
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Dots Indicator: ViewPager’in altına sabitlendi -->
+
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
         android:id="@+id/dots_inducator"
         android:layout_width="wrap_content"
