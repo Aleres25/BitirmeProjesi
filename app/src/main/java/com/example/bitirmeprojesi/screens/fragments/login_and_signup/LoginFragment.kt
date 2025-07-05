@@ -39,19 +39,21 @@ class LoginFragment : Fragment() {
             Log.e("LoginSatfasıLogları", "Zaten giriş yapılmış: $userId")
             findNavController().navigate(R.id.action_loginFragment_to_feedFragment)
         }
-
-        binding.loginButton.setOnClickListener {
-            val email = binding.emailInput.text.toString()
-            val password = binding.passwordInput.text.toString()
-            auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+        with(binding){
+            loginButton.setOnClickListener {
+                val email = emailInput.text.toString()
+                val password = passwordInput.text.toString()
+                auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
                     findNavController().navigate(R.id.action_loginFragment_to_feedFragment)
                 }.addOnFailureListener { exception ->
                     Log.e("LoginSatfasıLogları", "Hata: ${exception.localizedMessage}")
                     Toast.makeText(requireContext(), "Giriş başarısız!", Toast.LENGTH_SHORT).show()
                 }
+            }
+            gotoSignup.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            }
         }
-        binding.gotoSignup.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-        }
+
     }
 }

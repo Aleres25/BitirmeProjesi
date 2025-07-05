@@ -17,11 +17,6 @@ class CartDataSource(private val dao: CartDao) {
     suspend fun getCartItems(kullaniciAdi: String): List<CartItem> {
         return dao.getCartItems(kullaniciAdi).urunler_sepeti
     }
-
-    suspend fun updateCartItem(item: CartItem) = dao.updateCartItem(
-        sepetId = item.sepetId,
-        siparisAdeti = item.siparisAdeti
-    )
     suspend fun deleteFromCart(sepetId: Int, kullaniciAdi: String) =
         dao.deleteFromCart(sepetId, kullaniciAdi)
 }

@@ -35,7 +35,7 @@
                 android:id="@+id/textViewCartName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ürün Adı"
+                android:text="@string/r_n_ad"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:fontFamily="@font/poppins_medium" />

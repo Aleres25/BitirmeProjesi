@@ -17,13 +17,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = ViewPagerAdapterForIntro(this)
-        binding.viewPager.adapter = adapter
-        binding.dotsInducator.attachTo(binding.viewPager)
+        with(binding){
+            adapter = ViewPagerAdapterForIntro(this@MainActivity)
+            viewPager.adapter = adapter
+            dotsInducator.attachTo(binding.viewPager)
 
 
-        startAutoSwiping()
-        binding.viewPager.registerOnPageChangeCallback(onPageChangeCallBack)
+            startAutoSwiping()
+            binding.viewPager.registerOnPageChangeCallback(onPageChangeCallBack)
+        }
+
 
     }
 

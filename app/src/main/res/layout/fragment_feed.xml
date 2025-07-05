@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feedFragmentRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/feedFragmentRoot"
     android:background="@color/white"
     tools:context=".screens.fragments.main.FeedFragment">
 
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:id="@+id/swipeRefresh"
+        android:layout_height="match_parent">
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="50dp"
-                android:id="@+id/gotoCart"
-                android:layout_gravity="right"
-                android:src="@drawable/baseline_shopping_cart_24"
-                android:layout_height="50dp"></ImageView>
+            android:padding="15dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/gotoCart"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/baseline_shopping_cart_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="315dp"
+                    android:gravity="center|start"
+                    android:textSize="22sp"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Hoşgeldin Alp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gotoCart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:elevation="4dp"
+                android:iconifiedByDefault="false"
+                android:queryHint="Ürün ara..."
+                android:textColorHint="#FFFFFF" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feedRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp"
+                android:scrollbars="vertical" />
+
         </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:queryHint="Ürün ara..."
-            android:iconifiedByDefault="false"
-            android:textColorHint="#FFFFFF"
-            android:elevation="4dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/feedRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:paddingBottom="8dp"
-            android:scrollbars="vertical" />
-
-    </LinearLayout>
 </FrameLayout>

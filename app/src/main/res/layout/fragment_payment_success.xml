@@ -18,7 +18,7 @@
         android:id="@+id/textViewPaymentSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ödeme Başarıyla Yapıldı ✅"
+        android:text="@string/deme_ba_ar_yla_yap_ld"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:fontFamily="@font/poppins_medium"

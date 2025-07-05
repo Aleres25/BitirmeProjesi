@@ -72,30 +72,29 @@ class SignUpFragment : Fragment() {
                     .show()
             }
         }
-        binding.signupButton.setOnClickListener {
-            val email = binding.emailInput.text.toString().trim()
-            val password = binding.passwordInput.text.toString().trim()
-            val name = binding.nameInput.text.toString().trim()
+        with(binding){
+            signupButton.setOnClickListener {
+                val email = emailInput.text.toString().trim()
+                val password = passwordInput.text.toString().trim()
+                val name = nameInput.text.toString().trim()
 
-            authViewModel.register(email, password, name) { success, errorMsg ->
-                if (success) {
-                    Toast.makeText(requireContext(), "Kayıt başarılı", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
-                } else {
-                    Toast.makeText(requireContext(), "Hata: $errorMsg", Toast.LENGTH_SHORT).show()
+                authViewModel.register(email, password, name) { success, errorMsg ->
+                    if (success) {
+                        Toast.makeText(requireContext(), "Kayıt başarılı", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+                    } else {
+                        Toast.makeText(requireContext(), "Hata: $errorMsg", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
+
+            gotoLogin.setOnClickListener {
+                val navOptions = NavOptions.Builder()
+                    .setEnterAnim(R.anim.slide_in_right)
+                    .setExitAnim(R.anim.slide_out_left)
+                    .build()
+                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment, null, navOptions)
+            }
         }
-
-
-
-
-        binding.gotoLogin.setOnClickListener {
-            val navOptions = NavOptions.Builder()
-                .setEnterAnim(R.anim.slide_in_right)
-                .setExitAnim(R.anim.slide_out_left)
-                .build()
-            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment, null, navOptions)
         }
-    }
 }

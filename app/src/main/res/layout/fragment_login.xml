@@ -39,7 +39,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="48dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Giriş Yap"
+                android:text="@string/giri_yap"
                 android:textColor="@android:color/white"
                 android:textSize="32sp"
                 android:textStyle="bold" />
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
-                    android:hint="E-posta"
+                    android:hint="@string/e_posta"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="#CCCCCC" />
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
-                    android:hint="Şifre"
+                    android:hint="@string/ifre"
                     android:inputType="textPassword"
                     android:textColor="@color/black"
                     android:textColorHint="#CCCCCC" />
@@ -102,7 +102,7 @@
                 android:layout_marginTop="32dp"
                 android:backgroundTint="@color/buttonBackground"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Giriş Yap"
+                android:text="@string/giri_yap"
                 android:textAllCaps="false"
                 android:textColor="@color/buttonText"
                 android:textSize="18sp" />
@@ -114,7 +114,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Hesabın yok mu? Kayıt ol"
+                android:text="@string/hesab_n_yok_mu_kay_t_ol"
                 android:textColor="#DDDDDD"
                 android:textSize="14sp"
                 android:textStyle="bold" />

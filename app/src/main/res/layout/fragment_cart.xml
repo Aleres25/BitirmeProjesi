@@ -9,18 +9,18 @@
     android:padding="16dp"
     tools:context=".screens.fragments.main.CartFragment">
 
-<ImageView
-    android:id="@+id/backToFeedFragment"
-    android:layout_width="50dp"
-    android:layout_gravity="right"
-    android:src="@drawable/baseline_home_24"
-    android:layout_height="50dp"></ImageView>
+    <ImageView
+        android:layout_margin="10dp"
+        android:id="@+id/gotoHome"
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:src="@drawable/baseline_home_24"></ImageView>
     <TextView
-        android:layout_margin="15dp"
         android:id="@+id/cartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sepetiniz"
+        android:text="@string/sepetiniz"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:layout_marginBottom="12dp"

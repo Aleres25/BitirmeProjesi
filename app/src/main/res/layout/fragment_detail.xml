@@ -16,14 +16,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+<androidx.cardview.widget.CardView
+    android:layout_marginTop="25dp"
+    android:layout_width="match_parent"
+    android:elevation="15dp"
+    android:backgroundTint="@color/background"
+    app:cardCornerRadius="15dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/detailImageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:contentDescription="Ürün görseli" />
 
-            <ImageView
-                android:id="@+id/detailImageView"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:scaleType="fitXY"
-                android:layout_gravity="center"
-                android:contentDescription="Ürün görseli" />
+</androidx.cardview.widget.CardView>
 
 
             <TextView
@@ -117,7 +125,7 @@
                 android:id="@+id/buttonAddToCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sepete Ekle"
+                android:text="@string/sepete_ekle"
                 android:layout_marginTop="32dp"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="@color/black"

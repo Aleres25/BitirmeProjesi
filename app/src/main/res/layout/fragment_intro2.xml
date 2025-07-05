@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:gravity="center"
-                android:text="İndirimler cebinde, fırsatlar kapında!"
+                android:text="@string/ndirimler_cebinde_f_rsatlar_kap_nda"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
         </LinearLayout>

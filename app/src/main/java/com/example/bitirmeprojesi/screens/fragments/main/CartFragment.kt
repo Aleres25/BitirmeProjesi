@@ -41,17 +41,13 @@ class CartFragment : Fragment() {
 
 
 
-        adapter = CartAdapter(
-            emptyList(),
-            onQuantityChange = { item, newQty ->
-                viewModel.updateQuantityOrReplace(item, newQty)
-            },
-            onDelete = { sepetId, kullaniciAdi ->
-                viewModel.deleteCartItem(sepetId, kullaniciAdi)
-            }
-        )
+        adapter = CartAdapter(emptyList(), onQuantityChange = { item, newQty ->
+            viewModel.updateQuantityOrReplace(item, newQty)
+        }, onDelete = { sepetId, kullaniciAdi ->
+            viewModel.deleteCartItem(sepetId, kullaniciAdi)
+        })
 
-        with(binding){
+        with(binding) {
             cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             cartRecyclerView.adapter = adapter
             val animation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.recycler_layout_animation)
@@ -66,15 +62,13 @@ class CartFragment : Fragment() {
 
             val userId = auth.currentUser?.uid
             userId?.let { uid ->
-                database.reference.child("Users").child(uid).child("name").get()
-                    .addOnSuccessListener { snapshot ->
+                database.reference.child("Users").child(uid).child("name").get().addOnSuccessListener { snapshot ->
                         val username = snapshot.value as? String
                         username?.let {
                             viewModel.loadCart(it)
                             Log.d("Cart", "Kullanıcı adı: $it")
                         } ?: Log.e("Cart", "Kullanıcı adı null")
-                    }
-                    .addOnFailureListener {
+                    }.addOnFailureListener {
                         Log.e("Cart", "Firebase hata: ${it.localizedMessage}")
                     }
             }
@@ -82,7 +76,10 @@ class CartFragment : Fragment() {
                 findNavController().navigate(R.id.action_cartFragment_to_saveCardFragment)
             }
         }
+        binding.gotoHome.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_feedFragment)
         }
+    }
 
 }
 

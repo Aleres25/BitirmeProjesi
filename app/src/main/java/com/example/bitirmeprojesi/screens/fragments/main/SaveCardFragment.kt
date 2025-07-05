@@ -74,22 +74,24 @@ class SaveCardFragment : Fragment() {
                 }
             }
 
+        with(binding){
+           buttonSubmit.setOnClickListener {
+                val cardNumber = editTextCardNumber.text.toString()
+                val cardHolder = editTextName.text.toString()
+                val validThru = editTextExpiration.text.toString()
+                val cardCvv = editTextCVV.text.toString()
 
-        binding.buttonSubmit.setOnClickListener {
-            val cardNumber = binding.editTextCardNumber.text.toString()
-            val cardHolder = binding.editTextName.text.toString()
-            val validThru = binding.editTextExpiration.text.toString()
-            val cardCvv = binding.editTextCVV.text.toString()
+                if (cardNumber.isBlank() || cardHolder.isBlank() || validThru.isBlank() || cardCvv.isBlank()) {
+                    Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun!", Toast.LENGTH_SHORT).show()
+                }else{
+                    val bottomSheet = PaymentSuccessBottomSheet()
+                    bottomSheet.show(parentFragmentManager, "PaymentSuccess")
 
-            if (cardNumber.isBlank() || cardHolder.isBlank() || validThru.isBlank() || cardCvv.isBlank()) {
-                Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun!", Toast.LENGTH_SHORT).show()
-            }else{
-                val bottomSheet = PaymentSuccessBottomSheet()
-                bottomSheet.show(parentFragmentManager, "PaymentSuccess")
+                }
 
             }
-
         }
+
 
     }
 
@@ -194,49 +196,41 @@ class SaveCardFragment : Fragment() {
                 }
             }
         })
-
-        binding.editTextName.addTextChangedListener {
-            textViewCardHolder.text = it.toString().uppercase()
-        }
-
-        binding.editTextExpiration.filters = arrayOf(InputFilter.LengthFilter(5))
-        binding.editTextExpiration.addTextChangedListener(object : TextWatcher {
-            private var isFormatting = false
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (isFormatting) return
-                isFormatting = true
-
-                var input = s.toString().replace("/", "")
-                if (input.length > 2) {
-                    input = input.substring(0, 2) + "/" + input.substring(2)
-                }
-
-                binding.editTextExpiration.setText(input)
-                binding.editTextExpiration.setSelection(input.length)
-
-                textViewValidThru.text = input
-
-                isFormatting = false
+        with(binding){
+           editTextName.addTextChangedListener {
+                textViewCardHolder.text = it.toString().uppercase()
             }
-        })
 
-        binding.editTextCVV.filters = arrayOf(InputFilter.LengthFilter(3))
-        binding.editTextCVV.addTextChangedListener {
-            textViewCvv.text = it.toString()
+          editTextExpiration.filters = arrayOf(InputFilter.LengthFilter(5))
+          editTextExpiration.addTextChangedListener(object : TextWatcher {
+                private var isFormatting = false
+
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun afterTextChanged(s: Editable?) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    if (isFormatting) return
+                    isFormatting = true
+
+                    var input = s.toString().replace("/", "")
+                    if (input.length > 2) {
+                        input = input.substring(0, 2) + "/" + input.substring(2)
+                    }
+
+                    editTextExpiration.setText(input)
+                    editTextExpiration.setSelection(input.length)
+
+                    textViewValidThru.text = input
+
+                    isFormatting = false
+                }
+            })
+
+            editTextCVV.filters = arrayOf(InputFilter.LengthFilter(3))
+            editTextCVV.addTextChangedListener {
+                textViewCvv.text = it.toString()
+            }
         }
-    }
-}
-private fun getCardType(cardNumber: String): String {
-    return when {
-        cardNumber.startsWith("4") -> "Visa"
-        cardNumber.startsWith("5") -> "MasterCard"
-        cardNumber.startsWith("34") || cardNumber.startsWith("37") -> "American Express"
-        cardNumber.startsWith("9792") -> "Troy"
-        else -> "Bilinmiyor"
     }
 }
 

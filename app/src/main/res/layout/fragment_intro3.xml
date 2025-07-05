@@ -40,7 +40,7 @@
                 android:textSize="24sp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="Araştır, sipariş ver, takip et – biz hallederiz!" />
+                android:text="@string/ara_t_r_sipari_ver_takip_et_biz_hallederiz" />
 
         </LinearLayout>
 

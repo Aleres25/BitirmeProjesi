@@ -37,7 +37,7 @@
                 android:textSize="24sp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="Binlerce ürün, tek bir dokunuş uzağında!" />
+                android:text="@string/binlerce_r_n_tek_bir_dokunu_uza_nda" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
