@@ -9,7 +9,7 @@ import coil.load
 import com.example.bitirmeprojesi.databinding.RowProductBinding
 import com.example.bitirmeprojesi.entitiy.Product
 
-class ProductAdapter(private var fullList: List<Product>, private val onItemClick: (Product) -> Unit) :
+class ProductAdapter(private var fullList: List<Product>, private val onItemClick: (Product) -> Unit, private val onAddToCart: (Product, Int) -> Unit) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(), Filterable {
 
     private var filteredList: List<Product> = fullList.toList()
@@ -53,6 +53,12 @@ class ProductAdapter(private var fullList: List<Product>, private val onItemClic
 
             imageViewProduct.setOnClickListener {
                 onItemClick(product)
+            }
+            buttonAddToCart.setOnClickListener {
+                val currentQty = productQuantities[product.id] ?: 0
+                if (currentQty > 0) {
+                    onAddToCart(product, currentQty)
+                }
             }
         }
     }

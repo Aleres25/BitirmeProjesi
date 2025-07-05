@@ -82,7 +82,6 @@ class DetailFragment : Fragment() {
                                     Log.d("SepetKontrol", "Kullanıcı Adı: $userName")
 
                                     cartViewModel.addToCart(ad = product.ad, resim = product.resim, kategori = product.kategori, fiyat = product.fiyat, marka = product.marka, siparisAdeti = quantity, kullaniciAdi = userName)
-
                                     findNavController().navigate(R.id.action_detailFragment_to_cartFragment)
                                 } else {
                                     Log.e("SepetKontrol", "Kullanıcı adı boş!")

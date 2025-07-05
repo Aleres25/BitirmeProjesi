@@ -32,4 +32,10 @@ interface CartDao {
         @Field("siparisAdeti") siparisAdeti: Int
     ): CRUDResponse
 
+    @POST("urunler/sepettenUrunSil.php")
+    @FormUrlEncoded
+    suspend fun deleteFromCart(
+        @Field("sepetId") sepetId: Int,
+        @Field("kullaniciAdi") kullaniciAdi: String
+    ): CRUDResponse
 }

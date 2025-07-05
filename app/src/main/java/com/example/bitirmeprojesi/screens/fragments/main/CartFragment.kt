@@ -36,14 +36,22 @@ class CartFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        // Adapter
-        adapter = CartAdapter(emptyList())
+
+        adapter = CartAdapter(
+            emptyList(),
+            onQuantityChange = { item, newQty ->
+                viewModel.updateQuantityOrReplace(item, newQty)
+            },
+            onDelete = { sepetId, kullaniciAdi ->
+                viewModel.deleteCartItem(sepetId, kullaniciAdi)
+            }
+        )
 
 
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.cartRecyclerView.adapter = adapter
 
-        // Observer
+
         viewModel.cartItems.observe(viewLifecycleOwner) { items ->
             adapter.updateList(items)
             Log.d("Cart", "Sepet verisi geldi: ${items.size} ürün")
